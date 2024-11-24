@@ -94,5 +94,8 @@ project( godot-cpp
 
 godotcpp_generate()
 
-# Test Example
-add_subdirectory( test )
+# Build tests if this is the top level project
+get_directory_property(HAS_PARENT PARENT_DIRECTORY)
+if(NOT HAS_PARENT)
+    add_subdirectory( test )
+endif()
