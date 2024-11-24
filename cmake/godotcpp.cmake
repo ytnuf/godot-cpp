@@ -247,9 +247,9 @@ function( godotcpp_generate )
         )
 
         target_include_directories( ${TARGET_NAME} ${GODOT_SYSTEM_HEADERS_ATTRIBUTE} PUBLIC
-                include
-                ${CMAKE_CURRENT_BINARY_DIR}/gen/include
-                ${GODOT_GDEXTENSION_DIR}
+                $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+                $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/gen/include>
+                $<BUILD_INTERFACE:${GODOT_GDEXTENSION_DIR}>
         )
 
         set_target_properties( ${TARGET_NAME}
