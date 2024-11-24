@@ -118,6 +118,8 @@ function( godotcpp_options )
     option( GODOT_DEBUG_SYMBOLS "" OFF )
     option( GODOT_DEV_BUILD "Developer build with dev-only debugging code (DEV_ENABLED)" OFF )
 
+    set(GODOT_TARGETS template_debug;template_release;editor CACHE STRING "Compilation targets")
+
     # FIXME These options are not present in SCons, and perhaps should be added there.
     option( GODOT_SYSTEM_HEADERS "Expose headers as SYSTEM." OFF )
     option( GODOT_WARNING_AS_ERROR "Treat warnings as errors" OFF )
@@ -226,7 +228,7 @@ function( godotcpp_generate )
     endif()
 
     ### Define our godot-cpp library targets
-    foreach ( TARGET_NAME template_debug template_release editor )
+    foreach(TARGET_NAME IN LISTS GODOT_TARGETS)
 
         # Useful genex snippits used in subsequent genex's
         set( IS_RELEASE "$<STREQUAL:${TARGET_NAME},template_release>")
