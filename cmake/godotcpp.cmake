@@ -76,9 +76,9 @@ function( godotcpp_options )
     #NOTE: platform is managed using toolchain files.
 
     # Input from user for GDExtension interface header and the API JSON file
-    set(GODOT_GDEXTENSION_DIR "gdextension" CACHE PATH
+    set(GODOT_GDEXTENSION_DIR "${CMAKE_CURRENT_SOURCE_DIR}/gdextension" CACHE PATH
             "Path to a custom directory containing GDExtension interface header and API JSON file ( /path/to/gdextension_dir )" )
-    set(GODOT_CUSTOM_API_FILE "" CACHE FILEPATH
+    set(GODOT_GDEXTENSION_API_FILE "${GODOT_GDEXTENSION_DIR}/extension_api.json" CACHE FILEPATH
             "Path to a custom GDExtension API JSON file (takes precedence over `GODOT_GDEXTENSION_DIR`) ( /path/to/custom_api_file )")
 
     #TODO generate_bindings
@@ -181,11 +181,6 @@ function( godotcpp_generate )
         if(CMAKE_SIZEOF_VOID_P EQUAL 8)
             set(BITS 64)
         endif(CMAKE_SIZEOF_VOID_P EQUAL 8)
-    endif()
-
-    set(GODOT_GDEXTENSION_API_FILE "${GODOT_GDEXTENSION_DIR}/extension_api.json")
-    if (NOT "${GODOT_CUSTOM_API_FILE}" STREQUAL "")  # User-defined override.
-        set(GODOT_GDEXTENSION_API_FILE "${GODOT_CUSTOM_API_FILE}")
     endif()
 
     # Code Generation option
