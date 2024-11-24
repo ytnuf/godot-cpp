@@ -267,6 +267,7 @@ function( godotcpp_generate )
                 PREFIX lib
                 OUTPUT_NAME "${PROJECT_NAME}.${SYSTEM_NAME}.${TARGET_NAME}.${SYSTEM_ARCH}"
                 ARCHIVE_OUTPUT_DIRECTORY "$<1:${CMAKE_BINARY_DIR}/bin>"
+                EXPORT_NAME ${TARGET_NAME}
 
                 # Things that are handy to know for dependent targets
                 GODOT_PLATFORM "${SYSTEM_NAME}"
