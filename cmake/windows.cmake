@@ -26,7 +26,7 @@ function( windows_generate TARGET_NAME )
 
     set_target_properties( ${TARGET_NAME}
             PROPERTIES
-            PDB_OUTPUT_DIRECTORY "$<1:${CMAKE_SOURCE_DIR}/bin>"
+            PDB_OUTPUT_DIRECTORY "$<1:${CMAKE_BINARY_DIR}/bin>"
     )
 
     target_compile_definitions( ${TARGET_NAME}

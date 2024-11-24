@@ -25,7 +25,7 @@ get_target_property( GODOT_PLATFORM godot-cpp::${TEST_TARGET} GODOT_PLATFORM )
 get_target_property( GODOT_TARGET godot-cpp::${TEST_TARGET} GODOT_TARGET )
 get_target_property( GODOT_ARCH godot-cpp::${TEST_TARGET} GODOT_ARCH )
 
-set( OUTPUT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/project/bin/" )
+set( OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/project/bin/" )
 
 set_target_properties( godot-cpp-test
         PROPERTIES
